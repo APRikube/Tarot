@@ -52,18 +52,22 @@ public class MainJavaFX extends Application {
 		cartePetit.setRotate(50);
 		cartePetit.setCache(true);
 
+		Carte Test = new Carte("file:./ressources/Tarot_nouveau_-_Grimaud_-_1898_-_Trumps_-_21.jpg", 400, 300);
+
 		// scene graphique
 		fenetre.setTitle("Let's play Tarot !");
 		Group cartes = new Group();
 		Scene plateau = new Scene(cartes,1024,768);
 		plateau.setFill(Color.BLACK);
-		cartes.getChildren().add(carte21);
-		cartes.getChildren().add(carteExcuse);
-		cartes.getChildren().add(cartePetit);
+		//cartes.getChildren().add(carte21);
+		//cartes.getChildren().add(carteExcuse);
+		//cartes.getChildren().add(cartePetit);
+		cartes.getChildren().add(Test);
 		fenetre.setScene(plateau); 
 		fenetre.sizeToScene(); 
 		fenetre.show(); 
 
+		/*
 		// animation 1 : zoom (toutes les cartes)
 		scaleTransition = 
 				new ScaleTransition(Duration.seconds(4), cartes);
@@ -98,6 +102,9 @@ public class MainJavaFX extends Application {
 
 		// go !
 		parallelTransition.play();
+		*/
+
+		
 	}     
 
 	public static void main(String[] args) {
