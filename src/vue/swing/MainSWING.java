@@ -37,7 +37,7 @@ public class MainSWING {
 						if (carte21)
 							jb.setIcon(imageIconCarte1);
 						carte21 = ! carte21;
-						System.out.println("Echange de carte détecté ...");
+						System.out.println("Echange de carte dï¿½tectï¿½ ...");
 					}
 				}
 				);
@@ -53,6 +53,7 @@ public class MainSWING {
 
 	public static void main(String[] args) {
 		new MainSWING();
+		System.out.println("WESH");
 	}
 
 }
