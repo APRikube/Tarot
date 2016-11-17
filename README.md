@@ -1,1 +1,4 @@
 #Tarot
+
+contributors:
+#GACON Dorian
