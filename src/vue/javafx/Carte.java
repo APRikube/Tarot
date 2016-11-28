@@ -8,6 +8,7 @@ public class Carte extends ImageView {
 	private Image image;
 	private static int width = 150;
 	private static int height = 300;
+	private boolean face;
 	
 	public Carte(String imageName, int x, int y)
 	{
@@ -17,6 +18,7 @@ public class Carte extends ImageView {
 		setY(y);
 		setFitWidth(width);
 		setFitHeight(height);
+		face = true;
 	}
 	
 }
