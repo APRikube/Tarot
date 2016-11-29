@@ -54,19 +54,26 @@ public class MainJavaFX extends Application {
 				cartePetit.setRotate(50);
 				cartePetit.setCache(true);*/
 				
+
+				Deck d = new Deck();
+		
 				//Carte carte21 = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
 				Carte carteExcuse = new Carte("file:./ressources/Trumps_Excuse.jpg", 400, 500);
 				Carte cartePetit = new Carte("file:./ressources/Trumps_1.jpg", 400, 400);
 				Carte Test = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
+				
+				d.addCarte(carteExcuse);
+				d.addCarte(cartePetit);
+				d.addCarte(Test);
 				
 				// scene graphique
 				fenetre.setTitle("Let's play Tarot !");
 				Group cartes = new Group();
 				Scene plateau = new Scene(cartes,1024,768);
 				plateau.setFill(Color.GREEN);
-				cartes.getChildren().add(carteExcuse);
-				cartes.getChildren().add(cartePetit);
-				cartes.getChildren().add(Test);
+				//cartes.getChildren().add(carteExcuse);
+				//cartes.getChildren().add(cartePetit);
+				//cartes.getChildren().add(Test);
 				fenetre.setScene(plateau); 
 				fenetre.sizeToScene(); 
 				fenetre.show(); 
@@ -119,11 +126,8 @@ public class MainJavaFX extends Application {
 	}     
 
 	public static void main(String[] args) {
-		//launch(args);
+		launch(args);
 
-		Deck d = new Deck();
-
-		System.out.println(d.getSize());
 	}
 
 }

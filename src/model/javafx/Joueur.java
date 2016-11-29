@@ -21,7 +21,7 @@ public class Joueur {
 		return main;
 	}
 	
-	public int getNumJoueur()
+	public int getNumPlayer()
 	{
 		return numPlayer;
 	}
