@@ -1,4 +1,5 @@
 package vue.javafx;
+import java.util.ArrayList;
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
@@ -13,6 +14,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.javafx.Carte;
+import model.javafx.Deck;
 
 public class MainJavaFX extends Application {
 
@@ -22,7 +25,7 @@ public class MainJavaFX extends Application {
 	private TranslateTransition translateTransition;	
 
 	public void demo (Stage fenetre){
-		// objet graphique : carte 21
+		/*// objet graphique : carte 21
 				Image image21 = new Image("file:./ressources/Trumps_21.jpg");
 				ImageView carte21 = new ImageView();
 				carte21.setImage(image21);
@@ -49,16 +52,18 @@ public class MainJavaFX extends Application {
 				cartePetit.setY(-1000);
 				cartePetit.setTranslateZ(100);
 				cartePetit.setRotate(50);
-				cartePetit.setCache(true);
-
+				cartePetit.setCache(true);*/
+				
+				//Carte carte21 = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
+				Carte carteExcuse = new Carte("file:./ressources/Trumps_Excuse.jpg", 400, 500);
+				Carte cartePetit = new Carte("file:./ressources/Trumps_1.jpg", 400, 400);
 				Carte Test = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
-
+				
 				// scene graphique
 				fenetre.setTitle("Let's play Tarot !");
 				Group cartes = new Group();
 				Scene plateau = new Scene(cartes,1024,768);
-				plateau.setFill(Color.BLACK);
-				cartes.getChildren().add(carte21);
+				plateau.setFill(Color.GREEN);
 				cartes.getChildren().add(carteExcuse);
 				cartes.getChildren().add(cartePetit);
 				cartes.getChildren().add(Test);
@@ -110,10 +115,15 @@ public class MainJavaFX extends Application {
 	@Override
 	public void start(Stage fenetre) throws Exception {
 		demo(fenetre);
+		
 	}     
 
 	public static void main(String[] args) {
-		launch(args);
+		//launch(args);
+
+		Deck d = new Deck();
+
+		System.out.println(d.getSize());
 	}
 
 }
