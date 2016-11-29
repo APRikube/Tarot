@@ -9,6 +9,9 @@ public class Carte extends ImageView {
 	private static int width = 50;
 	private static int height = 100;
 	private boolean face;
+	private int numCarte;
+	private int colCarte;
+	
 	
 	public Carte(String imageName, int x, int y)
 	{
@@ -22,7 +25,23 @@ public class Carte extends ImageView {
 	}
 	
 	public Carte()
+	{}
+	
+	private boolean getFace()
 	{
+		return face;
 	}
+	
+	public int getNum()
+	{
+		return numCarte;
+	}
+	
+	public int getCol()
+	{
+		return colCarte;
+	}
+	
+	// 0=Spades, 1= Hearts, 2=Trumps, 3=Diamonds, 4=Clubs
 	
 }
