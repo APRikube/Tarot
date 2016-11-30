@@ -42,6 +42,10 @@ public class Carte extends ImageView {
 		return colCarte;
 	}
 	
+	public void setImage(String imageName){
+		image = new Image(imageName);
+	}
+	
 	// 0=Spades, 1= Hearts, 2=Trumps, 3=Diamonds, 4=Clubs
 	
 }

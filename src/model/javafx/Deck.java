@@ -1,6 +1,7 @@
 package model.javafx;
 
 import java.util.ArrayList;
+
 import model.javafx.Carte;
 
 public class Deck{
