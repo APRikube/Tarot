@@ -5,27 +5,27 @@ import javafx.scene.image.ImageView;
 
 
 public class Carte extends ImageView {
+	private String cardName;
 	private Image image;
-	private static int width = 50;
-	private static int height = 100;
-	private boolean face;
+	private static int width = 75;
+	private static int height = 125;
+	private boolean face ;
 	private int numCarte;
 	private int colCarte;
 	
 	
+	
 	public Carte(String imageName, int x, int y)
 	{
+		cardName=imageName;
 		image = new Image(imageName);
 		setImage(image);
-		setX(x);
-		setY(y);
 		setFitWidth(width);
 		setFitHeight(height);
+		setX(x);
+		setY(y);
 		face = true;
 	}
-	
-	public Carte()
-	{}
 	
 	private boolean getFace()
 	{
@@ -42,10 +42,30 @@ public class Carte extends ImageView {
 		return colCarte;
 	}
 	
-	public void setImage(String imageName){
+	public void setIMAGE(String imageName){
 		image = new Image(imageName);
 	}
 	
+	public void flip()
+	{
+		setFace(false);
+	}
+	
+	public void setFace(boolean face)
+	{
+		this.face = face;
+
+		if(this.face==false)
+		{
+			Image value= new Image("file:./ressources/Dos.png");
+			setImage(value);
+		}
+		else
+		{
+			Image value= new Image(cardName);
+			setImage(value);
+		}
+	}
 	// 0=Spades, 1= Hearts, 2=Trumps, 3=Diamonds, 4=Clubs
 	
 }

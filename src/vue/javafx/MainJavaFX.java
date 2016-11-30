@@ -24,7 +24,7 @@ public class MainJavaFX extends Application {
 	private RotateTransition rotateTransition;	
 	private TranslateTransition translateTransition;	
 
-	public void demo (Stage fenetre){
+	public void demo (Stage fenetre) {
 		/*// objet graphique : carte 21
 				Image image21 = new Image("file:./ressources/Trumps_21.jpg");
 				ImageView carte21 = new ImageView();
@@ -56,66 +56,15 @@ public class MainJavaFX extends Application {
 
 		Deck d = new Deck();
 
-		Group cartes = new Group();
-		
-		//Charge Spades
-		for (int i=1; i<=14; i++){
-			String card = "file:./ressources/Spades_"+Integer.toString(i)+".jpg";
-			Carte spades = new Carte(card, -50+50*i, 100);
-//			d.addCarte(p);
-			cartes.getChildren().add(spades);
-		}
-		
-		//Charge Hearts
-		for (int i=1; i<=14; i++){
-			String card = "file:./ressources/Hearts_"+Integer.toString(i)+".jpg";
-			Carte hearts = new Carte(card, -50+50*i, 200);
-//			d.addCarte(p);
-			cartes.getChildren().add(hearts);
-		}
-		
-		//Charge Trumps
-		for (int i=1; i<=22; i++){
-			String card = "file:./ressources/Trumps_"+Integer.toString(i)+".jpg";
-			Carte trumps = new Carte(card, -50+50*i, 300);
-//			d.addCarte(p);
-			cartes.getChildren().add(trumps);
-		}
-		
-		//Charge Diamonds
-		for (int i=1; i<=14; i++){
-			String card = "file:./ressources/Diamonds_"+Integer.toString(i)+".jpg";
-			Carte diamonds = new Carte(card, -50+50*i, 400);
-//			d.addCarte(p);
-			cartes.getChildren().add(diamonds);
-		}
-		
-		//Charge Clubs
-		for (int i=1; i<=14; i++){
-			String card = "file:./ressources/Clubs_"+Integer.toString(i)+".jpg";
-			Carte clubs = new Carte(card, -50+50*i, 500);
-//			d.addCarte(p);
-			cartes.getChildren().add(clubs);
-		}
-
-		//Carte carte21 = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
-
-//		d.addCarte(carteExcuse);
-//		d.addCarte(cartePetit);
-//		d.addCarte(Test);
-
-
 		// scene graphique
 		fenetre.setTitle("Let's play Tarot !");
-		Scene plateau = new Scene(cartes,1124,768);
+		Scene plateau = new Scene(d,1124,768);
 		plateau.setFill(Color.DARKGREEN);
-		//cartes.getChildren().add(carteExcuse);
-		//cartes.getChildren().add(cartePetit);
-		//cartes.getChildren().add(Test);
 		fenetre.setScene(plateau); 
 		fenetre.sizeToScene(); 
 		fenetre.show(); 
-
+		
+		d.regroup();
 
 		// animation 1 : zoom (toutes les cartes)
 		//				scaleTransition = 
@@ -152,9 +101,6 @@ public class MainJavaFX extends Application {
 		//				// go !
 		//				parallelTransition.play();
 
-
-
-
 	}
 
 	@Override
@@ -165,7 +111,7 @@ public class MainJavaFX extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
-
+		
 	}
 
 }
