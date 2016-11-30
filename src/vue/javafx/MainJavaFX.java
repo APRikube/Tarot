@@ -63,7 +63,7 @@ public class MainJavaFX extends Application {
 		fenetre.setScene(plateau); 
 		fenetre.sizeToScene(); 
 		fenetre.show(); 
-		
+
 		d.regroup();
 
 		// animation 1 : zoom (toutes les cartes)
@@ -111,7 +111,7 @@ public class MainJavaFX extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
-		
+
 	}
 
 }

@@ -7,14 +7,14 @@ import javafx.scene.image.ImageView;
 public class Carte extends ImageView {
 	private String cardName;
 	private Image image;
-	private static int width = 75;
-	private static int height = 125;
+	private static int width = 50;
+	private static int height = 100;
 	private boolean face ;
 	private int numCarte;
 	private int colCarte;
-	
-	
-	
+
+
+
 	public Carte(String imageName, int x, int y)
 	{
 		cardName=imageName;
@@ -26,31 +26,31 @@ public class Carte extends ImageView {
 		setY(y);
 		face = true;
 	}
-	
+
 	private boolean getFace()
 	{
 		return face;
 	}
-	
+
 	public int getNum()
 	{
 		return numCarte;
 	}
-	
+
 	public int getCol()
 	{
 		return colCarte;
 	}
-	
+
 	public void setIMAGE(String imageName){
 		image = new Image(imageName);
 	}
-	
+
 	public void flip()
 	{
 		setFace(false);
 	}
-	
+
 	public void setFace(boolean face)
 	{
 		this.face = face;
@@ -67,5 +67,5 @@ public class Carte extends ImageView {
 		}
 	}
 	// 0=Spades, 1= Hearts, 2=Trumps, 3=Diamonds, 4=Clubs
-	
+
 }
