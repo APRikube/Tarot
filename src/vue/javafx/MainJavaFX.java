@@ -61,24 +61,44 @@ public class MainJavaFX extends Application {
 		//Charge Spades
 		for (int i=1; i<=14; i++){
 			String card = "file:./ressources/Spades_"+Integer.toString(i)+".jpg";
-			Carte p = new Carte(card, 0+50*i, 100);
+			Carte spades = new Carte(card, -50+50*i, 100);
 //			d.addCarte(p);
-			cartes.getChildren().add(p);
+			cartes.getChildren().add(spades);
+		}
+		
+		//Charge Hearts
+		for (int i=1; i<=14; i++){
+			String card = "file:./ressources/Hearts_"+Integer.toString(i)+".jpg";
+			Carte hearts = new Carte(card, -50+50*i, 200);
+//			d.addCarte(p);
+			cartes.getChildren().add(hearts);
 		}
 		
 		//Charge Trumps
 		for (int i=1; i<=22; i++){
 			String card = "file:./ressources/Trumps_"+Integer.toString(i)+".jpg";
-			Carte p = new Carte(card, 0+50*i, 300);
+			Carte trumps = new Carte(card, -50+50*i, 300);
 //			d.addCarte(p);
-			cartes.getChildren().add(p);
+			cartes.getChildren().add(trumps);
 		}
 		
+		//Charge Diamonds
+		for (int i=1; i<=14; i++){
+			String card = "file:./ressources/Diamonds_"+Integer.toString(i)+".jpg";
+			Carte diamonds = new Carte(card, -50+50*i, 400);
+//			d.addCarte(p);
+			cartes.getChildren().add(diamonds);
+		}
+		
+		//Charge Clubs
+		for (int i=1; i<=14; i++){
+			String card = "file:./ressources/Clubs_"+Integer.toString(i)+".jpg";
+			Carte clubs = new Carte(card, -50+50*i, 500);
+//			d.addCarte(p);
+			cartes.getChildren().add(clubs);
+		}
 
 		//Carte carte21 = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
-		Carte carteExcuse = new Carte("file:./ressources/Trumps_Excuse.jpg", 400, 500);
-		Carte cartePetit = new Carte("file:./ressources/Trumps_1.jpg", 400, 400);
-		Carte Test = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
 
 //		d.addCarte(carteExcuse);
 //		d.addCarte(cartePetit);
@@ -87,8 +107,8 @@ public class MainJavaFX extends Application {
 
 		// scene graphique
 		fenetre.setTitle("Let's play Tarot !");
-		Scene plateau = new Scene(cartes,1024,768);
-		plateau.setFill(Color.TRANSPARENT);
+		Scene plateau = new Scene(cartes,1124,768);
+		plateau.setFill(Color.DARKGREEN);
 		//cartes.getChildren().add(carteExcuse);
 		//cartes.getChildren().add(cartePetit);
 		//cartes.getChildren().add(Test);
