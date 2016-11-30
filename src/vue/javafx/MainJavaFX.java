@@ -53,76 +53,94 @@ public class MainJavaFX extends Application {
 				cartePetit.setTranslateZ(100);
 				cartePetit.setRotate(50);
 				cartePetit.setCache(true);*/
-				
 
-				Deck d = new Deck();
+		Deck d = new Deck();
+
+		Group cartes = new Group();
 		
-				//Carte carte21 = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
-				Carte carteExcuse = new Carte("file:./ressources/Trumps_Excuse.jpg", 400, 500);
-				Carte cartePetit = new Carte("file:./ressources/Trumps_1.jpg", 400, 400);
-				Carte Test = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
-				
-				d.addCarte(carteExcuse);
-				d.addCarte(cartePetit);
-				d.addCarte(Test);
-				
-				// scene graphique
-				fenetre.setTitle("Let's play Tarot !");
-				Group cartes = new Group();
-				Scene plateau = new Scene(cartes,1024,768);
-				plateau.setFill(Color.GREEN);
-				//cartes.getChildren().add(carteExcuse);
-				//cartes.getChildren().add(cartePetit);
-				//cartes.getChildren().add(Test);
-				fenetre.setScene(plateau); 
-				fenetre.sizeToScene(); 
-				fenetre.show(); 
+		//Charge Spades
+		for (int i=1; i<=14; i++){
+			String card = "file:./ressources/Spades_"+Integer.toString(i)+".jpg";
+			Carte p = new Carte(card, 0+50*i, 100);
+//			d.addCarte(p);
+			cartes.getChildren().add(p);
+		}
+		
+		//Charge Trumps
+		for (int i=1; i<=22; i++){
+			String card = "file:./ressources/Trumps_"+Integer.toString(i)+".jpg";
+			Carte p = new Carte(card, 0+50*i, 300);
+//			d.addCarte(p);
+			cartes.getChildren().add(p);
+		}
+		
 
-				
-				// animation 1 : zoom (toutes les cartes)
-				scaleTransition = 
-						new ScaleTransition(Duration.seconds(4), cartes);
-				scaleTransition.setFromX(0.1);
-				scaleTransition.setFromY(0.1);
-				scaleTransition.setToX(0.3);
-				scaleTransition.setToY(0.3);
-				scaleTransition.setAutoReverse(true);
-				scaleTransition.setCycleCount(Timeline.INDEFINITE);
-				// animation 2 : rotation (toutes les cartes)
-				rotateTransition = new RotateTransition(Duration.seconds(30), cartes);
-				rotateTransition.setAxis(new Point3D(100,0,100));
-				rotateTransition.setFromAngle(0);
-				rotateTransition.setToAngle(2160);
-				rotateTransition.setAutoReverse(true);
-				rotateTransition.setCycleCount(Timeline.INDEFINITE);
-				// animation 3 : translation (carte Petit)
-				translateTransition = new TranslateTransition(Duration.seconds(1), cartePetit);
-				translateTransition.setFromZ(200);
-				translateTransition.setToZ(-200);
-				translateTransition.setAutoReverse(true);
-				translateTransition.setCycleCount(Timeline.INDEFINITE);
-				
-				// animation globale: toutes en //
-				parallelTransition = new ParallelTransition();
-				parallelTransition.getChildren().addAll(
-						rotateTransition,
-						scaleTransition,
-						translateTransition
-						); 
-				parallelTransition.setCycleCount(Timeline.INDEFINITE);
+		//Carte carte21 = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
+		Carte carteExcuse = new Carte("file:./ressources/Trumps_Excuse.jpg", 400, 500);
+		Carte cartePetit = new Carte("file:./ressources/Trumps_1.jpg", 400, 400);
+		Carte Test = new Carte("file:./ressources/Trumps_21.jpg", 400, 300);
 
-				// go !
-				parallelTransition.play();
-				
+//		d.addCarte(carteExcuse);
+//		d.addCarte(cartePetit);
+//		d.addCarte(Test);
 
-				
+
+		// scene graphique
+		fenetre.setTitle("Let's play Tarot !");
+		Scene plateau = new Scene(cartes,1024,768);
+		plateau.setFill(Color.TRANSPARENT);
+		//cartes.getChildren().add(carteExcuse);
+		//cartes.getChildren().add(cartePetit);
+		//cartes.getChildren().add(Test);
+		fenetre.setScene(plateau); 
+		fenetre.sizeToScene(); 
+		fenetre.show(); 
+
+
+		// animation 1 : zoom (toutes les cartes)
+		//				scaleTransition = 
+		//						new ScaleTransition(Duration.seconds(4), cartes);
+		//				scaleTransition.setFromX(0.1);
+		//				scaleTransition.setFromY(0.1);
+		//				scaleTransition.setToX(0.3);
+		//				scaleTransition.setToY(0.3);
+		//				scaleTransition.setAutoReverse(true);
+		//				scaleTransition.setCycleCount(Timeline.INDEFINITE);
+		//				// animation 2 : rotation (toutes les cartes)
+		//				rotateTransition = new RotateTransition(Duration.seconds(30), cartes);
+		//				rotateTransition.setAxis(new Point3D(100,0,100));
+		//				rotateTransition.setFromAngle(0);
+		//				rotateTransition.setToAngle(2160);
+		//				rotateTransition.setAutoReverse(true);
+		//				rotateTransition.setCycleCount(Timeline.INDEFINITE);
+		//				// animation 3 : translation (carte Petit)
+		//				translateTransition = new TranslateTransition(Duration.seconds(1), cartePetit);
+		//				translateTransition.setFromZ(200);
+		//				translateTransition.setToZ(-200);
+		//				translateTransition.setAutoReverse(true);
+		//				translateTransition.setCycleCount(Timeline.INDEFINITE);
+		//				
+		//				// animation globale: toutes en //
+		//				parallelTransition = new ParallelTransition();
+		//				parallelTransition.getChildren().addAll(
+		//						rotateTransition,
+		//						scaleTransition,
+		//						translateTransition
+		//						); 
+		//				parallelTransition.setCycleCount(Timeline.INDEFINITE);
+		//
+		//				// go !
+		//				parallelTransition.play();
+
+
+
 
 	}
-	
+
 	@Override
 	public void start(Stage fenetre) throws Exception {
 		demo(fenetre);
-		
+
 	}     
 
 	public static void main(String[] args) {

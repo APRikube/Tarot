@@ -1,6 +1,7 @@
 package model.javafx;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import model.javafx.Carte;
 
@@ -27,4 +28,8 @@ public class Deck{
 		deck.add(carte);
 	}
 	
+	public void shuffle()
+	{
+		Collections.shuffle(deck);
+	}
 }
