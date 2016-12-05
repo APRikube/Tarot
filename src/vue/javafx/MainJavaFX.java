@@ -1,10 +1,13 @@
 package vue.javafx;
 import java.util.ArrayList;
+
+import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
+import javafx.animation.SequentialTransition;
 import javafx.application.Application;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
@@ -12,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.javafx.Carte;
@@ -25,6 +29,9 @@ public class MainJavaFX extends Application {
 	private TranslateTransition translateTransition;	
 
 	public void demo (Stage fenetre) {
+		
+		fenetre.setTitle("Let's play Tarot !");
+		
 		/*// objet graphique : carte 21
 				Image image21 = new Image("file:./ressources/Trumps_21.jpg");
 				ImageView carte21 = new ImageView();
@@ -54,17 +61,39 @@ public class MainJavaFX extends Application {
 				cartePetit.setRotate(50);
 				cartePetit.setCache(true);*/
 
-		Deck d = new Deck();
+		//Deck d = new Deck();
 
+		Carte c = new Carte("file:./ressources/Trumps_2.jpg", 500, 300);
+		Group g = new Group();
+		g.getChildren().add(c);
 		// scene graphique
-		fenetre.setTitle("Let's play Tarot !");
-		Scene plateau = new Scene(d,1124,768);
+		Scene plateau = new Scene(g,1124,768);
 		plateau.setFill(Color.DARKGREEN);
 		fenetre.setScene(plateau); 
 		fenetre.sizeToScene(); 
 		fenetre.show(); 
-
-		d.regroup();
+		
+		
+		    RotateTransition rotateOutFront = new RotateTransition(Duration.millis(1000), c); 
+		    rotateOutFront.setInterpolator(Interpolator.LINEAR); 
+		    rotateOutFront.setAxis(Rotate.Y_AXIS); 
+		    rotateOutFront.setFromAngle(0); 
+		    rotateOutFront.setToAngle(90); 
+		    
+		    //c.setIMAGE("file:./ressources/Dos.png");
+		    
+		    RotateTransition rotateInBack = new RotateTransition(Duration.millis(1000), c); 
+		    rotateInBack.setInterpolator(Interpolator.LINEAR); 
+		    rotateInBack.setAxis(Rotate.Y_AXIS); 
+		    rotateInBack.setFromAngle(-90); 
+		    rotateInBack.setToAngle(0); 
+		    
+		    SequentialTransition A = new SequentialTransition(rotateOutFront, rotateInBack);
+		    A.play();
+		
+		//c.flip().play();
+	
+		//d.regroup();
 
 		// animation 1 : zoom (toutes les cartes)
 		//				scaleTransition = 
@@ -111,7 +140,7 @@ public class MainJavaFX extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
-
+		
 	}
 
 }
